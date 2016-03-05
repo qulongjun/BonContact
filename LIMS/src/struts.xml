@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"     
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!--配置开发者模式-->
+    <constant name="struts.devMode" value="true" />
+    <package name="base" extends="struts-default" >
+        <action name="login" class="com.boncontact.Action.Base.Login" method="login">
+            <result name="success">
+                /WEB-INF/JSP/base/login.jsp
+            </result>
+        </action>
+    </package>
+</struts>  
