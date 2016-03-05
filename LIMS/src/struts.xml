@@ -4,8 +4,10 @@
 <struts>
     <!--配置开发者模式-->
     <constant name="struts.devMode" value="true" />
+    <constant name="struts.action.extension" value="action" />
+
     <package name="base" extends="struts-default" >
-        <action name="login" class="com.boncontact.Action.Base.Login" method="login">
+        <action name="login" class="com.boncontact.Action.Base.LoginAction" method="login">
             <result name="success">
                 /WEB-INF/JSP/base/login.jsp
             </result>

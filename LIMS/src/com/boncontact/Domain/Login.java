@@ -9,17 +9,9 @@ public class Login {
     //用户名
     private String username;
     //密码
-    private String passowrd;
+    private String password;
     //当前登录状态
     private int loginState;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -29,12 +21,20 @@ public class Login {
         this.username = username;
     }
 
-    public String getPassowrd() {
-        return passowrd;
+    public Long getId() {
+        return id;
     }
 
-    public void setPassowrd(String passowrd) {
-        this.passowrd = passowrd;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getLoginState() {
