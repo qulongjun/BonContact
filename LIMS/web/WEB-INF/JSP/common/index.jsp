@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -821,6 +822,7 @@
 <!-- DROPZONE -->
 <script type="text/javascript" src="js/dropzone/dropzone.min.js"></script>
 <!-- CUSTOM SCRIPT -->
+<script type="text/javascript" src="js/customer/plugin/validCheck.js"></script>
 <script src="js/script.js"></script>
 <script>
     jQuery(document).ready(function () {

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,265 +81,69 @@
                     <!-- ORDERS -->
                     <div class="row">
                         <!-- ORDER SCROLL -->
-                        <div class="col-md-4 ">
+                        <div class="col-md-6 ">
                             <div class="panel panel-default">
-                                <div class="panel-body orders">
+                                <div class="panel-body ">
+                                    <div class="pull-right hidden-xs">
+                                        <div class="btn-group">
+                                            <button class="btn btn-info" id="create_department"><i
+                                                    class="fa fa-file-text-o"></i> 创建部门
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <hr>
                                     <div class="scroller" data-height="650px" data-always-visible="1"
                                          data-rail-visible="1">
-                                        <ul class="list-unstyled" id="agreement_model_list">
-                                            <li class="clearfix active">
-                                                <div class="pull-left">
-                                                    <p>
-                                                    <h5><strong>#A001</strong> 综合办公室</h5>
-                                                    </p>
-                                                    <p><i class="fa fa-users"></i> <abbr class="timeago"
-                                                                                         title="部门人数">321人</abbr>
-                                                    </p>
-
-                                                </div>
-                                                <div class="text-right pull-right">
-                                                    <h4 class="cost">&nbsp;</h4>
-                                                    <p>
-                                                                <span class="label label-success arrow-in-right"><i
-                                                                        class="fa fa-check"></i> 人数众多</span>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar progress-bar-success"
-                                                         role="progressbar" aria-valuenow="85" aria-valuemin="0"
-                                                         aria-valuemax="100" style="width: 85%;">
-                                                        <span class="sr-only">85% 人数众多</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="pull-left">
-                                                    <p>
-                                                    <h5><strong>#A002</strong> 质量控制室</h5>
-                                                    </p>
-                                                    <p><i class="fa fa-users"></i> <abbr class="timeago"
-                                                                                         title="部门人数">102人</abbr>
-                                                    </p>
-
-                                                </div>
-                                                <div class="text-right pull-right">
-                                                    <h4 class="cost">&nbsp;</h4>
-                                                    <p>
-                                                                <span class="label label-warning arrow-in-right"><i
-                                                                        class="fa fa-cog"></i> 人数适中</span>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar progress-bar-warning"
-                                                         role="progressbar" aria-valuenow="30" aria-valuemin="0"
-                                                         aria-valuemax="100" style="width: 30%;">
-                                                        <span class="sr-only">30% 人数适中</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="pull-left">
-                                                    <p>
-                                                    <h5><strong>#A003</strong> 现场采样室</h5>
-                                                    </p>
-                                                    <p><i class="fa fa-users"></i> <abbr class="timeago"
-                                                                                         title="部门人数">207人</abbr>
-                                                    </p>
-
-                                                </div>
-                                                <div class="text-right pull-right">
-                                                    <h4 class="cost">&nbsp;</h4>
-                                                    <p>
-                                                                <span class="label label-primary arrow-in-right"><i
-                                                                        class="fa fa-archive"></i> 人数较多</span>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar progress-bar-primary"
-                                                         role="progressbar" aria-valuenow="97" aria-valuemin="0"
-                                                         aria-valuemax="100" style="width: 97%;">
-                                                        <span class="sr-only">97% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="pull-left">
-                                                    <p>
-                                                    <h5><strong>#A004</strong>主任室</h5>
-                                                    </p>
-                                                    <p><i class="fa fa-users"></i> <abbr class="timeago"
-                                                                                         title="部门人数">10</abbr>
-                                                    </p>
-
-                                                </div>
-                                                <div class="text-right pull-right">
-                                                    <h4 class="cost">&nbsp;</h4>
-                                                    <p>
-                                                                <span class="label label-danger arrow-in-right"><i
-                                                                        class="fa fa-star"></i> 人数较低</span>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar progress-bar-danger"
-                                                         role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                                                         aria-valuemax="100" style="width: 10%;">
-                                                        <span class="sr-only">10% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix active">
-                                                <div class="pull-left">
-                                                    <p>
-                                                    <h5><strong>#A001</strong> 综合办公室</h5>
-                                                    </p>
-                                                    <p><i class="fa fa-users"></i> <abbr class="timeago"
-                                                                                         title="部门人数">321人</abbr>
-                                                    </p>
-
-                                                </div>
-                                                <div class="text-right pull-right">
-                                                    <h4 class="cost">&nbsp;</h4>
-                                                    <p>
-                                                                <span class="label label-success arrow-in-right"><i
-                                                                        class="fa fa-check"></i> 人数众多</span>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar progress-bar-success"
-                                                         role="progressbar" aria-valuenow="85" aria-valuemin="0"
-                                                         aria-valuemax="100" style="width: 85%;">
-                                                        <span class="sr-only">85% 人数众多</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="pull-left">
-                                                    <p>
-                                                    <h5><strong>#A002</strong> 质量控制室</h5>
-                                                    </p>
-                                                    <p><i class="fa fa-users"></i> <abbr class="timeago"
-                                                                                         title="部门人数">102人</abbr>
-                                                    </p>
-
-                                                </div>
-                                                <div class="text-right pull-right">
-                                                    <h4 class="cost">&nbsp;</h4>
-                                                    <p>
-                                                                <span class="label label-warning arrow-in-right"><i
-                                                                        class="fa fa-cog"></i> 人数适中</span>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar progress-bar-warning"
-                                                         role="progressbar" aria-valuenow="30" aria-valuemin="0"
-                                                         aria-valuemax="100" style="width: 30%;">
-                                                        <span class="sr-only">30% 人数适中</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="pull-left">
-                                                    <p>
-                                                    <h5><strong>#A003</strong> 现场采样室</h5>
-                                                    </p>
-                                                    <p><i class="fa fa-users"></i> <abbr class="timeago"
-                                                                                         title="部门人数">207人</abbr>
-                                                    </p>
-
-                                                </div>
-                                                <div class="text-right pull-right">
-                                                    <h4 class="cost">&nbsp;</h4>
-                                                    <p>
-                                                                <span class="label label-primary arrow-in-right"><i
-                                                                        class="fa fa-archive"></i> 人数较多</span>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar progress-bar-primary"
-                                                         role="progressbar" aria-valuenow="97" aria-valuemin="0"
-                                                         aria-valuemax="100" style="width: 97%;">
-                                                        <span class="sr-only">97% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="clearfix">
-                                                <div class="pull-left">
-                                                    <p>
-                                                    <h5><strong>#A004</strong>主任室</h5>
-                                                    </p>
-                                                    <p><i class="fa fa-users"></i> <abbr class="timeago"
-                                                                                         title="部门人数">10</abbr>
-                                                    </p>
-
-                                                </div>
-                                                <div class="text-right pull-right">
-                                                    <h4 class="cost">&nbsp;</h4>
-                                                    <p>
-                                                                <span class="label label-danger arrow-in-right"><i
-                                                                        class="fa fa-star"></i> 人数较低</span>
-                                                    </p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar progress-bar-danger"
-                                                         role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                                                         aria-valuemax="100" style="width: 10%;">
-                                                        <span class="sr-only">10% Complete</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="text-center">部门名称</div>
+                                                </th>
+                                                <th>
+                                                    <div class="text-center">备注</div>
+                                                </th>
+                                                <th>
+                                                    <div class="text-center">操作</div>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <s:iterator value="#departmentList" id="d">
+                                                <tr>
+                                                    <td>
+                                                        <div class="text-center">${d.name}</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-center">${d.other}</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-success btn-xs edit_department" data-id="${d.id}"><i
+                                                                        class="fa fa-edit"></i> 编辑
+                                                                </button>
+                                                            </div>
+                                                            <div class="btn-group">
+                                                                <button class="btn btn-danger btn-xs del_department" data-id="${d.id}"><i
+                                                                        class="fa fa-trash-o"></i> 删除
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </s:iterator>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
-                                <div class='text-center'>
-                                    <ul class='pagination'>
-                                        <li class='disabled'>
-                                            <a href='#'>
-                                                <i class='fa fa-angle-left'></i>
-                                            </a>
-                                        </li>
-                                        <li class='active'>
-                                            <a href='#'>
-                                                1
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href='#'>2</a>
-                                        </li>
-                                        <li>
-                                            <a href='#'>3</a>
-                                        </li>
-                                        <li>
-                                            <a href='#'>4</a>
-                                        </li>
-                                        <li>
-                                            <a href='#'>5</a>
-                                        </li>
-                                        <li>
-                                            <a href='#'>
-                                                <i class='fa fa-angle-right'></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button class="btn btn-info" id="create_department"><i
-                                        class="fa fa-file-text-o"></i> 创建部门
-                                </button>
                             </div>
                         </div>
 
                         <!-- /ORDER SCROLL -->
                         <!-- ORDER DETAILS -->
-                        <div class="col-md-8" id="agreement_detail">
+                        <div class="col-md-6" id="agreement_detail">
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="pull-left">

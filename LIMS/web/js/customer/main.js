@@ -75,7 +75,7 @@ me.find('#create_department').on('click', function () {
         + '<div class="form-group">'
         + '<label class="col-sm-3 control-label">部门名称</label>'
         + '<div class="col-sm-9">'
-        + '<input type="text" class="form-control" name="name" placeholder="请输入部门名称">'
+        + '<input type="text" class="form-control required" name="name" placeholder="请输入部门名称">'
         + '</div>'
         + '</div>'
         + '<div class="form-group">'
@@ -90,6 +90,11 @@ me.find('#create_department').on('click', function () {
                 label: '完成',
                 className: 'btn-info',
                 callback: function () {
+                    var result = FieldValidation.validate($('#create_department_form'));
+                    if(!result){
+                        alertMessage('您填写的信息不完整或格式错误!','error');
+                        return false;
+                    }
                     $.ajax({
                         type: 'post',
                         url: "department_add.action",
@@ -99,6 +104,7 @@ me.find('#create_department').on('click', function () {
                             var json = eval('(' + data + ')');
                             if (json.result == 'true') {
                                 alertMessage('部门保存成功!','success');
+                                rightFrame.window.location.href="department_page.action?target='rightFrame'";
                             } else {
                                 alertMessage('部门保存失败,请联系网络管理员!','danger');
                             }
@@ -120,7 +126,7 @@ me.find('#change_departmentt').on('click', function () {
         + '<div class="form-group">'
         + '<label class="col-sm-3 control-label">部门名称</label>'
         + '<div class="col-sm-9">'
-        + '<input type="text" class="form-control" placeholder="请输入部门名称">'
+        + '<input type="text" class="form-control" placeholder="请输入部门名称,必填项">'
         + '</div>'
         + '</div>'
         + '<div class="form-group">'
@@ -145,6 +151,85 @@ me.find('#change_departmentt').on('click', function () {
         },
         closeButton: false
     });
+});
+me.find('.edit_department').on('click',function(){
+    var id=$(this).data('id');
+    if(id){
+        $.ajax({
+            type: 'get',
+            url: "department_editPage.action?id="+id,
+            async: false,
+            success: function (data) {
+                var json = eval('(' + data + ')');
+                if (json.result == 'true') {
+                    alert(json.department);
+                    bootbox.dialog({
+                        message: '<form class="form-horizontal" role="form">'
+                        + '<div class="form-group">'
+                        + '<label class="col-sm-3 control-label">部门名称</label>'
+                        + '<div class="col-sm-9">'
+                        + '<input type="text" class="form-control" placeholder="请输入部门名称,必填项" value=${department.name}>'
+                        + '</div>'
+                        + '</div>'
+                        + '<div class="form-group">'
+                        + '<label class="col-sm-3 control-label">备注信息</label>'
+                        + '<div class="col-sm-9">'
+                        + '<textarea class="form-control" rows="3" placeholder="请输入备注信息"></textarea>'
+                        + '</div>'
+                        + '</div>'
+                        + '</form>',
+                        buttons: {
+                            ok: {
+                                label: '完成',
+                                className: 'btn-info'
+                            },
+                            cancel: {
+                                label: '取消',
+                                className: 'btn-default'
+                            },
+                        },
+                        callback: function (result) {
+                            alert(result);
+                        },
+                        closeButton: false
+                    });
+
+                } else {
+                    alertMessage('部门保存失败,请联系网络管理员!','danger');
+                }
+            }
+        });
+    }
+    //bootbox.dialog({
+    //    message: '<form class="form-horizontal" role="form">'
+    //    + '<div class="form-group">'
+    //    + '<label class="col-sm-3 control-label">部门名称</label>'
+    //    + '<div class="col-sm-9">'
+    //    + '<input type="text" class="form-control" name="name" placeholder="请输入部门名称,必填项">'
+    //    + '</div>'
+    //    + '</div>'
+    //    + '<div class="form-group">'
+    //    + '<label class="col-sm-3 control-label">备注信息</label>'
+    //    + '<div class="col-sm-9">'
+    //    + '<textarea class="form-control" rows="3" name="other" placeholder="请输入备注信息"></textarea>'
+    //    + '</div>'
+    //    + '</div>'
+    //    + '</form>',
+    //    buttons: {
+    //        ok: {
+    //            label: '完成',
+    //            className: 'btn-info'
+    //        },
+    //        cancel: {
+    //            label: '取消',
+    //            className: 'btn-default'
+    //        },
+    //    },
+    //    callback: function (result) {
+    //        alert(result);
+    //    },
+    //    closeButton: false
+    //});
 });
 me.find('.edit_user_group,#create_user_group').on('click', function () {
     bootbox.dialog({
