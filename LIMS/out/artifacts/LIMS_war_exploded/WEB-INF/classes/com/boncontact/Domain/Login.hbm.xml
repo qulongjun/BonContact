@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.boncontact.Domain">
+	<class name="Login" table="bdc_login">
+		<id name="id">
+            <generator class="identity"/>
+		</id>
+		<property name="username" not-null="true" unique="true" type="string"/>
+		<property name="password" not-null="true" type="string"/>
+		<property name="loginState" not-null="true" type="integer"/>
+	</class>
+	
+</hibernate-mapping>

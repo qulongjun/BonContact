@@ -2,14 +2,35 @@
 <!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"     
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-    <!--配置开发者模式-->
+    <!-- 当struts.xml改动后，是否重新加载。默认值为false(生产环境下使用),开发阶段最好打开  -->
+    <constant name="struts.configuration.xml.reload" value="true"/>
+    <!-- 是否使用struts的开发模式。开发模式会有更多的调试信息。默认值为false(生产环境下使用),开发阶段最好打开  -->
     <constant name="struts.devMode" value="true" />
+    <!--使用Spring来管理class-->
+    <constant name="struts.objectFactory" value="spring"></constant>
+    <!-- 请求参数的编码方式 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!-- 指定被struts2处理的请求后缀类型。多个用逗号隔开 -->
     <constant name="struts.action.extension" value="action" />
 
-    <package name="base" extends="struts-default" >
-        <action name="login" class="com.boncontact.Action.Base.LoginAction" method="login">
+
+    <package name="common" extends="struts-default" >
+        <!--<result-types>-->
+            <!--<result-type name="json" class="org.apache.struts2.json.JSONResult"></result-type>-->
+        <!--</result-types>-->
+        <action name="*_page" class="{1}" method="{1}_page">
             <result name="success">
-                /WEB-INF/JSP/base/login.jsp
+                /WEB-INF/JSP/common/{1}.jsp
+            </result>
+        </action>
+
+
+    </package>
+    <package name="backMsg" extends="json-default">
+        <action name="*_find" class="{1}" method="{1}_find">
+            <result type="json"></result>
+            <result type="json">
+                <param name="root">jsonResult</param>
             </result>
         </action>
     </package>

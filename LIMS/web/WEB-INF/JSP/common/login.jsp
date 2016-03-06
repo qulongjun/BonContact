@@ -207,13 +207,18 @@
         App.setPage("login_bg");  //Set current page
         App.init(); //Initialise plugins and elements
         $('#loginBtn').on('click', function () {
-            alert('122');
             $.ajax({
-                url: "login.action",
+                type:'post',
+                url: "login_find.action",
                 data: $('#loginForm').serialize(),
                 async: false,
                 success: function (data) {
-                    alert('success');
+                    var json = eval('('+data+')');
+                    if(json.result=='true'){
+                        alert('success');
+                    }else{
+                        alert('error');
+                    }
                 }
             });
         });
