@@ -15,9 +15,6 @@
 
 
     <package name="common" extends="struts-default" >
-        <!--<result-types>-->
-            <!--<result-type name="json" class="org.apache.struts2.json.JSONResult"></result-type>-->
-        <!--</result-types>-->
         <action name="*_page" class="{1}" method="{1}_page">
             <result name="success">
                 /WEB-INF/JSP/common/{1}.jsp
@@ -28,6 +25,12 @@
     </package>
     <package name="backMsg" extends="json-default">
         <action name="*_find" class="{1}" method="{1}_find">
+            <result type="json"></result>
+            <result type="json">
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+        <action name="*_add" class="{1}" method="{1}_add">
             <result type="json"></result>
             <result type="json">
                 <param name="root">jsonResult</param>

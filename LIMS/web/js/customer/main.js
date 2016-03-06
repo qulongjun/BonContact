@@ -53,6 +53,134 @@ var alertMessage = function (title, type) {
         showCloseButton: true
     });
 };
+
+/**
+ * 部门管理
+ */
+me.find('#del_department').on('click', function () {
+    askMessage('是否删除部门"质量控制室"?该部门下用户组和用户将会被删除。', '删除', '删除成功!');
+});
+me.find('.del_user_group').on('click', function () {
+    askMessage('是否删除用户组"客服组"?该用户组下的用户将会被删除。', '删除', '删除成功!');
+});
+me.find('.stop_user_group').on('click', function () {
+    askMessage('是否停用用户组"客服组"?该用户组下的用户将会被停用。', '停用', '停用成功!');
+});
+me.find('.start_user_group').on('click', function () {
+    askMessage('是否启用用户组"客服组"?该用户组下的用户将会被启用。', '启用', '启用成功!');
+});
+me.find('#create_department').on('click', function () {
+    bootbox.dialog({
+        message: '<form class="form-horizontal" role="form" id="create_department_form">'
+        + '<div class="form-group">'
+        + '<label class="col-sm-3 control-label">部门名称</label>'
+        + '<div class="col-sm-9">'
+        + '<input type="text" class="form-control" name="name" placeholder="请输入部门名称">'
+        + '</div>'
+        + '</div>'
+        + '<div class="form-group">'
+        + '<label class="col-sm-3 control-label">备注信息</label>'
+        + '<div class="col-sm-9">'
+        + '<textarea class="form-control" name="other" rows="3" placeholder="请输入备注信息"></textarea>'
+        + '</div>'
+        + '</div>'
+        + '</form>',
+        buttons: {
+            ok: {
+                label: '完成',
+                className: 'btn-info',
+                callback: function () {
+                    askMessage('是否创建名称为"管理员"部门?', '创建', '部门创建成果', function () {
+                        $.ajax({
+                            type:'post',
+                            url: "department_add.action",
+                            data: $('#create_department_form').serialize(),
+                            async: false,
+                            success: function (data) {
+                                var json = eval('('+data+')');
+                                if(json.result=='true'){
+                                    alert('success');
+                                }else{
+                                    alert('error');
+                                }
+                            }
+                        });
+                    });
+                }
+            },
+            cancel: {
+                label: '取消',
+                className: 'btn-default'
+            }
+        },
+        closeButton: false
+    })
+});
+me.find('#change_departmentt').on('click', function () {
+    bootbox.dialog({
+        message: '<form class="form-horizontal" role="form">'
+        + '<div class="form-group">'
+        + '<label class="col-sm-3 control-label">部门名称</label>'
+        + '<div class="col-sm-9">'
+        + '<input type="text" class="form-control" placeholder="请输入部门名称">'
+        + '</div>'
+        + '</div>'
+        + '<div class="form-group">'
+        + '<label class="col-sm-3 control-label">备注信息</label>'
+        + '<div class="col-sm-9">'
+        + '<textarea class="form-control" rows="3" placeholder="请输入备注信息"></textarea>'
+        + '</div>'
+        + '</div>'
+        + '</form>',
+        buttons: {
+            ok: {
+                label: '完成',
+                className: 'btn-info'
+            },
+            cancel: {
+                label: '取消',
+                className: 'btn-default'
+            },
+        },
+        callback: function (result) {
+            alert(result);
+        },
+        closeButton: false
+    });
+});
+me.find('.edit_user_group,#create_user_group').on('click', function () {
+    bootbox.dialog({
+        message: '<form class="form-horizontal" role="form">'
+        + '<div class="form-group">'
+        + '<label class="col-sm-3 control-label">用户组名称</label>'
+        + '<div class="col-sm-9">'
+        + '<input type="text" class="form-control" placeholder="请输入用户组名称">'
+        + '</div>'
+        + '</div>'
+        + '<div class="form-group">'
+        + '<label class="col-sm-3 control-label">备注信息</label>'
+        + '<div class="col-sm-9">'
+        + '<textarea class="form-control" rows="3" placeholder="请输入备注信息"></textarea>'
+        + '</div>'
+        + '</div>'
+        + '</form>',
+        buttons: {
+            ok: {
+                label: '完成',
+                className: 'btn-info'
+            },
+            cancel: {
+                label: '取消',
+                className: 'btn-default'
+            },
+        },
+        callback: function (result) {
+            alert(result);
+        },
+        closeButton: false
+    })
+    ;
+});
 /**
  * 首页
  */
@@ -246,86 +374,7 @@ me.find('#save_model').on('click', function () {
 me.find('#del_model').on('click', function () {
     askMessage('是否删除合同范本《2016标准版公司房屋租赁合同书范本》?', '删除', '删除成功!');
 });
-/**
- * 部门管理
- */
-me.find('#del_department').on('click', function () {
-    askMessage('是否删除部门"质量控制室"?该部门下用户组和用户将会被删除。', '删除', '删除成功!');
-});
-me.find('.del_user_group').on('click', function () {
-    askMessage('是否删除用户组"客服组"?该用户组下的用户将会被删除。', '删除', '删除成功!');
-});
-me.find('.stop_user_group').on('click', function () {
-    askMessage('是否停用用户组"客服组"?该用户组下的用户将会被停用。', '停用', '停用成功!');
-});
-me.find('.start_user_group').on('click', function () {
-    askMessage('是否启用用户组"客服组"?该用户组下的用户将会被启用。', '启用', '启用成功!');
-});
-me.find('#change_department,#create_department').on('click', function () {
-    bootbox.dialog({
-        message: '<form class="form-horizontal" role="form">'
-        + '<div class="form-group">'
-        + '<label class="col-sm-3 control-label">部门名称</label>'
-        + '<div class="col-sm-9">'
-        + '<input type="text" class="form-control" placeholder="请输入部门名称">'
-        + '</div>'
-        + '</div>'
-        + '<div class="form-group">'
-        + '<label class="col-sm-3 control-label">备注信息</label>'
-        + '<div class="col-sm-9">'
-        + '<textarea class="form-control" rows="3" placeholder="请输入备注信息"></textarea>'
-        + '</div>'
-        + '</div>'
-        + '</form>',
-        buttons: {
-            ok: {
-                label: '完成',
-                className: 'btn-info'
-            },
-            cancel: {
-                label: '取消',
-                className: 'btn-default'
-            },
-        },
-        callback: function (result) {
-            alert(result);
-        },
-        closeButton: false
-    });
-});
-me.find('.edit_user_group,#create_user_group').on('click', function () {
-    bootbox.dialog({
-        message: '<form class="form-horizontal" role="form">'
-        + '<div class="form-group">'
-        + '<label class="col-sm-3 control-label">用户组名称</label>'
-        + '<div class="col-sm-9">'
-        + '<input type="text" class="form-control" placeholder="请输入用户组名称">'
-        + '</div>'
-        + '</div>'
-        + '<div class="form-group">'
-        + '<label class="col-sm-3 control-label">备注信息</label>'
-        + '<div class="col-sm-9">'
-        + '<textarea class="form-control" rows="3" placeholder="请输入备注信息"></textarea>'
-        + '</div>'
-        + '</div>'
-        + '</form>',
-        buttons: {
-            ok: {
-                label: '完成',
-                className: 'btn-info'
-            },
-            cancel: {
-                label: '取消',
-                className: 'btn-default'
-            },
-        },
-        callback: function (result) {
-            alert(result);
-        },
-        closeButton: false
-    })
-    ;
-});
+
 /**
  * 权限管理
  */
@@ -503,13 +552,13 @@ me.find('.edit_sample_item').on('click', function () {
         allowClear: true
     });
 });
-me.find('#download_sample_list').on('click',function(){
+me.find('#download_sample_list').on('click', function () {
     askMessage('是否导出项目名为"关于六号桥水质检测项目"的样品登记表?', '导出', '导出成功!');
 });
 
-me.find('#receive_sample_checked').on('click',function(){
+me.find('#receive_sample_checked').on('click', function () {
     askMessage('是否批量接收当前所有选中的样品信息?', '接收', '接收成功!');
 });
-me.find('.receive_sample_item').on('click',function(){
+me.find('.receive_sample_item').on('click', function () {
     askMessage('是否接收样品编号为A0001的样品?', '接收', '接收成功!');
 });

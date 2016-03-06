@@ -1,5 +1,5 @@
 package com.boncontact.Service;
 
 
-public interface DepartmentService {
+public interface DepartmentService{
 }
