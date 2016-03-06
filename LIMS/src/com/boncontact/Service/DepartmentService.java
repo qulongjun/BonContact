@@ -1,5 +1,15 @@
 package com.boncontact.Service;
 
 
-public interface DepartmentService {
+import com.boncontact.Base.BaseService;
+import com.boncontact.Domain.Department;
+
+import java.util.List;
+
+public interface DepartmentService{
+    boolean save(Department entity);
+    List<Department> findAll();
+    Department getById(Long id);
+
 }
+

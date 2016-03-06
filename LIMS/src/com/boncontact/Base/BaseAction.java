@@ -1,5 +1,6 @@
 package com.boncontact.Base;
 
+import com.boncontact.Service.DepartmentService;
 import com.boncontact.Service.LoginService;
 import com.boncontact.ServiceImpl.LoginServiceImpl;
 import com.boncontact.utils.GenericsUtils;
@@ -27,4 +28,6 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 
     @Resource
     protected LoginService loginService;
+    @Resource
+    protected DepartmentService departmentService;
 }

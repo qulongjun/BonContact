@@ -12,7 +12,7 @@ public interface BaseDao<T> {
      * @param entity
      *            ：实体对象
      */
-    void save(T entity);
+    long save(T entity);
 
     /**
      * delete()：删除对象

@@ -1,6 +1,5 @@
 package com.boncontact.ServiceImpl;
 
-import com.boncontact.Base.BaseServiceImpl;
 import com.boncontact.Dao.LoginDao;
 import com.boncontact.Domain.Login;
 import com.boncontact.Service.LoginService;
@@ -13,7 +12,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class LoginServiceImpl extends BaseServiceImpl<Login> implements LoginService{
+public class LoginServiceImpl implements LoginService{
     @Resource
     private LoginDao loginDao;
     @Override

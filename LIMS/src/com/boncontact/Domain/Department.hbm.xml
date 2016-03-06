@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.boncontact.Domain">
 	<class name="Department" table="bdc_department">
-		<id name="id">
+		<id name="id" type="long">
             <generator class="identity"/>
 		</id>
 		<property name="name" not-null="true"  type="string"/>
