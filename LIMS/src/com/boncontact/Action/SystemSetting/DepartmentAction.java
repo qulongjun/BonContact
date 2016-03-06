@@ -14,10 +14,23 @@ public class DepartmentAction extends BaseAction<Department> {
     }
 
     public String department_add(){
-        jsonResult = "{'result':'true'}";
+        if(entity!=null){
+            System.out.println(entity.getName());
+            System.out.println(entity.getOther());
+            jsonResult = "{'result':'"+departmentService.save(entity)+"'}";
+        }else{
+            jsonResult = "{'result':'error'}";
+        }
         return SUCCESS;
     }
 
+    public String getJsonResult() {
+        return jsonResult;
+    }
+
+    public void setJsonResult(String jsonResult) {
+        this.jsonResult = jsonResult;
+    }
 
     @Override
     public Department getModel() {

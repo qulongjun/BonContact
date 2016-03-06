@@ -29,9 +29,9 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
     }
 
     @Override
-    public void save(T entity) {
+    public long save(T entity) {
         try {
-            getSession().save(entity);
+             return  (Long)getSession().save(entity);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -90,21 +90,19 @@ me.find('#create_department').on('click', function () {
                 label: '完成',
                 className: 'btn-info',
                 callback: function () {
-                    askMessage('是否创建名称为"管理员"部门?', '创建', '部门创建成果', function () {
-                        $.ajax({
-                            type:'post',
-                            url: "department_add.action",
-                            data: $('#create_department_form').serialize(),
-                            async: false,
-                            success: function (data) {
-                                var json = eval('('+data+')');
-                                if(json.result=='true'){
-                                    alert('success');
-                                }else{
-                                    alert('error');
-                                }
+                    $.ajax({
+                        type: 'post',
+                        url: "department_add.action",
+                        data: $('#create_department_form').serialize(),
+                        async: false,
+                        success: function (data) {
+                            var json = eval('(' + data + ')');
+                            if (json.result == 'true') {
+                                alertMessage('部门保存成功!','success');
+                            } else {
+                                alertMessage('部门保存失败,请联系网络管理员!','danger');
                             }
-                        });
+                        }
                     });
                 }
             },
