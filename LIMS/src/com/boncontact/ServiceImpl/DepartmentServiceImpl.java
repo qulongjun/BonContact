@@ -1,7 +1,6 @@
 package com.boncontact.ServiceImpl;
 
 
-import com.boncontact.Base.BaseServiceImpl;
 import com.boncontact.Dao.DepartmentDao;
 import com.boncontact.Domain.Department;
 import com.boncontact.Service.DepartmentService;
@@ -20,7 +19,6 @@ public class DepartmentServiceImpl implements DepartmentService {
     public boolean save(Department entity) {
         if(entity!=null){
             long id = departmentDao.save(entity);
-            System.out.println("id的值为"+id);
             return id>0;
         }
         return false;
@@ -34,5 +32,31 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Department getById(Long id) {
         return departmentDao.getById(id);
+    }
+
+    @Override
+    public boolean update(Department entity) {
+        if(entity.getId()!=null){
+            try {
+                departmentDao.update(entity);
+                return true;
+            }catch (Exception e){
+                throw new RuntimeException(e);
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        if(id!=null){
+            try {
+                departmentDao.delete(departmentDao.getById(id));
+                return true;
+            }catch (Exception e){
+                throw new RuntimeException(e);
+            }
+        }
+        return false;
     }
 }

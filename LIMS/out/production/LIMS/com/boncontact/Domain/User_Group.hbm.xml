@@ -4,17 +4,13 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.boncontact.Domain">
-	<class name="Department" table="bdc_department">
+	<class name="User_Group" table="bdc_user_group">
 		<id name="id" type="long">
             <generator class="identity"/>
 		</id>
 		<property name="name" not-null="true"  type="string"/>
 		<property name="other"  type="string"/>
-		<list name="user_groups" table="bdc_department_user_group" cascade="all">
-			<key column="department_id"></key>
-			<index column="[index]" type="long"/>
-			<one-to-many class="User_Group"></one-to-many >
-		</list>
-	</class>
+        <many-to-one name="department" column="department_id" class="Department"></many-to-one>
+ 	</class>
 	
 </hibernate-mapping>

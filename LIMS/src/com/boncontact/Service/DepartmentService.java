@@ -10,6 +10,8 @@ public interface DepartmentService{
     boolean save(Department entity);
     List<Department> findAll();
     Department getById(Long id);
+    boolean update(Department entity);
+    boolean delete(Long id);
 
 }
 

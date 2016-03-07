@@ -159,16 +159,6 @@
                                                     class="fa fa-edit"></i> 新增用户组
                                             </button>
                                         </div>
-                                        <div class="btn-group">
-                                            <button class="btn btn-success" id="change_department"><i
-                                                    class="fa fa-edit"></i> 编辑部门
-                                            </button>
-                                        </div>
-                                        <div class="btn-group">
-                                            <button class="btn btn-danger" id="del_department"><i
-                                                    class="fa fa-trash-o"></i> 删除部门
-                                            </button>
-                                        </div>
                                     </div>
                                     <div class="clearfix"></div>
                                     <hr>
@@ -178,16 +168,10 @@
                                         <thead>
                                         <tr>
                                             <th>
-                                                <div class="text-center">用户组编号</div>
-                                            </th>
-                                            <th>
                                                 <div class="text-center">用户组名称</div>
                                             </th>
                                             <th>
-                                                <div class="text-center">总人数</div>
-                                            </th>
-                                            <th>
-                                                <div class="text-center">当前状态</div>
+                                                <div class="text-center">备注</div>
                                             </th>
                                             <th>
                                                 <div class="text-center">操作</div>
@@ -196,19 +180,11 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-
-                                            <td>
-                                                <div class="text-center">A0001</div>
-                                            </td>
                                             <td>
                                                 <div class="text-center">主任</div>
                                             </td>
                                             <td>
-                                                <div class="text-center">5</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center"><span
-                                                        class="label label-info">启用</span></div>
+                                                <div class="text-center">备注信息</div>
                                             </td>
                                             <td>
                                                 <div class="text-center">
@@ -219,322 +195,7 @@
                                                     </div>
                                                     <div class="btn-group">
                                                         <button class="btn btn-warning btn-xs stop_user_group"><i
-                                                                class="fa fa-lock"></i> 停用
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger btn-xs del_user_group"><i
-                                                                class="fa fa-trash-o"></i> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <td>
-                                                <div class="text-center">A0002</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">客服组</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">20</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center"><span
-                                                        class="label label-warning">停用</span></div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success btn-xs edit_user_group"><i
-                                                                class="fa fa-edit"></i> 编辑
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-info btn-xs start_user_group"><i
-                                                                class="fa fa-unlock"></i> 启用
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger btn-xs del_user_group"><i
-                                                                class="fa fa-trash-o"></i> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <td>
-                                                <div class="text-center">A0001</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">主任</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">5</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center"><span
-                                                        class="label label-info">启用</span></div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success btn-xs edit_user_group"><i
-                                                                class="fa fa-edit"></i> 编辑
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-warning btn-xs stop_user_group"><i
-                                                                class="fa fa-lock"></i> 停用
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger btn-xs del_user_group"><i
-                                                                class="fa fa-trash-o"></i> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <td>
-                                                <div class="text-center">A0002</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">客服组</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">20</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center"><span
-                                                        class="label label-warning">停用</span></div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success btn-xs edit_user_group"><i
-                                                                class="fa fa-edit"></i> 编辑
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-info btn-xs start_user_group"><i
-                                                                class="fa fa-unlock"></i> 启用
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger btn-xs del_user_group"><i
-                                                                class="fa fa-trash-o"></i> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <td>
-                                                <div class="text-center">A0001</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">主任</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">5</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center"><span
-                                                        class="label label-info">启用</span></div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success btn-xs edit_user_group"><i
-                                                                class="fa fa-edit"></i> 编辑
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-warning btn-xs stop_user_group"><i
-                                                                class="fa fa-lock"></i> 停用
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger btn-xs del_user_group"><i
-                                                                class="fa fa-trash-o"></i> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <td>
-                                                <div class="text-center">A0002</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">客服组</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">20</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center"><span
-                                                        class="label label-warning">停用</span></div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success btn-xs edit_user_group"><i
-                                                                class="fa fa-edit"></i> 编辑
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-info btn-xs start_user_group"><i
-                                                                class="fa fa-unlock"></i> 启用
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger btn-xs del_user_group"><i
-                                                                class="fa fa-trash-o"></i> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <td>
-                                                <div class="text-center">A0001</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">主任</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">5</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center"><span
-                                                        class="label label-info">启用</span></div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success btn-xs edit_user_group"><i
-                                                                class="fa fa-edit"></i> 编辑
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-warning btn-xs stop_user_group"><i
-                                                                class="fa fa-lock"></i> 停用
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger btn-xs del_user_group"><i
-                                                                class="fa fa-trash-o"></i> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <td>
-                                                <div class="text-center">A0002</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">客服组</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">20</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center"><span
-                                                        class="label label-warning">停用</span></div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success btn-xs edit_user_group"><i
-                                                                class="fa fa-edit"></i> 编辑
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-info btn-xs start_user_group"><i
-                                                                class="fa fa-unlock"></i> 启用
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger btn-xs del_user_group"><i
-                                                                class="fa fa-trash-o"></i> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <td>
-                                                <div class="text-center">A0001</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">主任</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">5</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center"><span
-                                                        class="label label-info">启用</span></div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success btn-xs edit_user_group"><i
-                                                                class="fa fa-edit"></i> 编辑
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-warning btn-xs stop_user_group"><i
-                                                                class="fa fa-lock"></i> 停用
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger btn-xs del_user_group"><i
-                                                                class="fa fa-trash-o"></i> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-
-                                            <td>
-                                                <div class="text-center">A0002</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">客服组</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">20</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center"><span
-                                                        class="label label-warning">停用</span></div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success btn-xs edit_user_group"><i
-                                                                class="fa fa-edit"></i> 编辑
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-info btn-xs start_user_group"><i
-                                                                class="fa fa-unlock"></i> 启用
+                                                                class="fa fa-lock"></i> 权限
                                                         </button>
                                                     </div>
                                                     <div class="btn-group">

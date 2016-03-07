@@ -23,7 +23,7 @@
 	<!-- 3，导入映射文件 -->
 	<mapping resource="com/boncontact/Domain/Login.hbm.xml"></mapping>
 	<mapping resource="com/boncontact/Domain/Department.hbm.xml"></mapping>
-
+	<mapping resource="com/boncontact/Domain/User_Group.hbm.xml"></mapping>
 
 </session-factory>
 
