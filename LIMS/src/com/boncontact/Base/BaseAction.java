@@ -2,6 +2,7 @@ package com.boncontact.Base;
 
 import com.boncontact.Service.DepartmentService;
 import com.boncontact.Service.LoginService;
+import com.boncontact.Service.UserGroupService;
 import com.boncontact.ServiceImpl.LoginServiceImpl;
 import com.boncontact.utils.GenericsUtils;
 import com.opensymphony.xwork2.ActionSupport;
@@ -30,4 +31,6 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
     protected LoginService loginService;
     @Resource
     protected DepartmentService departmentService;
+    @Resource
+    protected UserGroupService userGroupService;
 }

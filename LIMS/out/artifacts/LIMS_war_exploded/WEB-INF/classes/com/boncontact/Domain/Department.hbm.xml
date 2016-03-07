@@ -10,6 +10,11 @@
 		</id>
 		<property name="name" not-null="true"  type="string"/>
 		<property name="other"  type="string"/>
+		<list name="user_groups" table="bdc_department_user_group" cascade="all">
+			<key column="department_id"></key>
+			<index column="[index]" type="long"/>
+			<one-to-many class="User_Group"></one-to-many >
+		</list>
 	</class>
 	
 </hibernate-mapping>

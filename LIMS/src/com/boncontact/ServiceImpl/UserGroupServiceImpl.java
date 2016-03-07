@@ -1,9 +1,8 @@
 package com.boncontact.ServiceImpl;
 
-
-import com.boncontact.Dao.DepartmentDao;
-import com.boncontact.Domain.Department;
-import com.boncontact.Service.DepartmentService;
+import com.boncontact.Dao.UserGroupDao;
+import com.boncontact.Domain.User_Group;
+import com.boncontact.Service.UserGroupService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,33 +11,34 @@ import java.util.List;
 
 @Service
 @Transactional
-public class DepartmentServiceImpl implements DepartmentService {
+public class UserGroupServiceImpl implements UserGroupService {
     @Resource
-    private DepartmentDao departmentDao;
+    private UserGroupDao userGroupDao;
+
     @Override
-    public boolean save(Department entity) {
-        if(entity!=null){
-            long id = departmentDao.save(entity);
-            return id>0;
+    public boolean save(User_Group entity) {
+        if (entity != null) {
+            long id = userGroupDao.save(entity);
+            return id > 0;
         }
         return false;
     }
 
     @Override
-    public List<Department> findAll() {
-        return departmentDao.findAll();
+    public List<User_Group> findAll() {
+        return userGroupDao.findAll();
     }
 
     @Override
-    public Department getById(Long id) {
-        return departmentDao.getById(id);
+    public User_Group getById(Long id) {
+        return userGroupDao.getById(id);
     }
 
     @Override
-    public boolean update(Department entity) {
+    public boolean update(User_Group entity) {
         if(entity.getId()!=null){
             try {
-                departmentDao.update(entity);
+                userGroupDao.update(entity);
                 return true;
             }catch (Exception e){
                 throw new RuntimeException(e);
@@ -51,7 +51,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     public boolean delete(Long id) {
         if(id!=null){
             try {
-                departmentDao.delete(departmentDao.getById(id));
+                userGroupDao.delete(userGroupDao.getById(id));
                 return true;
             }catch (Exception e){
                 throw new RuntimeException(e);

@@ -36,7 +36,25 @@
                 <param name="root">jsonResult</param>
             </result>
         </action>
+        <action name="*_edit" class="{1}" method="{1}_edit">
+            <result type="json"></result>
+            <result type="json">
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+        <action name="*_del" class="{1}" method="{1}_del">
+            <result type="json"></result>
+            <result type="json">
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
         <action name="*_editPage" class="{1}" method="{1}_editPage">
+            <result type="json"></result>
+            <result type="json">
+                <param name="root">jsonResult</param>
+            </result>
+        </action>
+        <action name="*_list" class="{1}" method="{1}_list">
             <result type="json"></result>
             <result type="json">
                 <param name="root">jsonResult</param>
