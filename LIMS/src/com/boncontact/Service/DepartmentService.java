@@ -1,7 +1,6 @@
 package com.boncontact.Service;
 
 
-import com.boncontact.Base.BaseService;
 import com.boncontact.Domain.Department;
 
 import java.util.List;

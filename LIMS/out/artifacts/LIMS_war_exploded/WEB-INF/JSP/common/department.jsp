@@ -95,7 +95,7 @@
                                     <hr>
                                     <div class="scroller" data-height="650px" data-always-visible="1"
                                          data-rail-visible="1">
-                                        <table class="table table-hover">
+                                        <table class="table table-hover" id="departmentTable">
                                             <thead>
                                             <tr>
                                                 <th>
@@ -111,7 +111,7 @@
                                             </thead>
                                             <tbody>
                                             <s:iterator value="#departmentList" id="d">
-                                                <tr>
+                                                <tr data-id="${d.id}">
                                                     <td>
                                                         <div class="text-center">${d.name}</div>
                                                     </td>
@@ -164,7 +164,7 @@
                                     <hr>
                                     <!--此处应该添加合同范本内容-->
 
-                                    <table class="table table-hover">
+                                    <table class="table table-hover" >
                                         <thead>
                                         <tr>
                                             <th>
@@ -178,34 +178,37 @@
                                             </th>
                                         </tr>
                                         </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="text-center">主任</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">备注信息</div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-success btn-xs edit_user_group"><i
-                                                                class="fa fa-edit"></i> 编辑
-                                                        </button>
+                                        <tbody id="userGroupBody">
+                                        <s:iterator value="#userGroupList" id="u">
+                                            <tr>
+                                                <td>
+                                                    <div class="text-center">${u.name}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="text-center">${u.other}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="text-center">
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-success btn-xs edit_user_group" data-id="${u.id}"><i
+                                                                    class="fa fa-edit"></i> 编辑
+                                                            </button>
+                                                        </div>
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-warning btn-xs stop_user_group" data-id="${u.id}"><i
+                                                                    class="fa fa-lock"></i> 权限
+                                                            </button>
+                                                        </div>
+                                                        <div class="btn-group">
+                                                            <button class="btn btn-danger btn-xs del_user_group" data-id="${u.id}"><i
+                                                                    class="fa fa-trash-o"></i> 删除
+                                                            </button>
+                                                        </div>
                                                     </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-warning btn-xs stop_user_group"><i
-                                                                class="fa fa-lock"></i> 权限
-                                                        </button>
-                                                    </div>
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger btn-xs del_user_group"><i
-                                                                class="fa fa-trash-o"></i> 删除
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                            </tr>
+                                        </s:iterator>
+
                                         </tbody>
                                     </table>
 

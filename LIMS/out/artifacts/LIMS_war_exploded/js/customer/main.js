@@ -66,20 +66,11 @@ me.find('.del_department').on('click', function () {
                     alertMessage('部门删除成功!', 'success');
                     rightFrame.window.location.href = "department_page.action?target='rightFrame'";
                 } else {
-                    alertMessage('部门信息已过期,请刷新之后重新尝试!', 'danger');
+                    alertMessage('部门信息已过期,请刷新之后重新尝试!', 'error');
                 }
             }
         });
     });
-});
-me.find('.del_user_group').on('click', function () {
-    askMessage('是否删除用户组"客服组"?该用户组下的用户将会被删除。', '删除', '删除成功!');
-});
-me.find('.stop_user_group').on('click', function () {
-    askMessage('是否停用用户组"客服组"?该用户组下的用户将会被停用。', '停用', '停用成功!');
-});
-me.find('.start_user_group').on('click', function () {
-    askMessage('是否启用用户组"客服组"?该用户组下的用户将会被启用。', '启用', '启用成功!');
 });
 //创建新部门
 me.find('#create_department').on('click', function () {
@@ -119,7 +110,7 @@ me.find('#create_department').on('click', function () {
                                 alertMessage('部门保存成功!', 'success');
                                 rightFrame.window.location.href = "department_page.action?target='rightFrame'";
                             } else {
-                                alertMessage('部门保存失败,请联系网络管理员!', 'danger');
+                                alertMessage('部门保存失败,请联系网络管理员!', 'error');
                             }
                         }
                     });
@@ -177,7 +168,7 @@ me.find('.edit_department').on('click', function () {
                                                 alertMessage('部门信息更改成功!', 'success');
                                                 rightFrame.window.location.href = "department_page.action?target='rightFrame'";
                                             } else {
-                                                alertMessage('部门信息已过期,请刷新之后重新尝试!', 'danger');
+                                                alertMessage('部门信息已过期,请刷新之后重新尝试!', 'error');
                                             }
                                         }
                                     });
@@ -192,7 +183,7 @@ me.find('.edit_department').on('click', function () {
                     });
 
                 } else {
-                    alertMessage('部门保存失败,请联系网络管理员!', 'danger');
+                    alertMessage('部门保存失败,请联系网络管理员!', 'error');
                 }
             }
         });
@@ -200,11 +191,14 @@ me.find('.edit_department').on('click', function () {
 });
 //创建新用户组
 me.find('#create_user_group').on('click', function () {
+
+    var departmentId = me.find('#departmentTable tr.active').data("id");
     bootbox.dialog({
-        message: '<form class="form-horizontal" role="form">'
+        message: '<form class="form-horizontal" role="form" id="create_user_group_form">'
         + '<div class="form-group">'
         + '<label class="col-sm-3 control-label">用户组名称</label>'
         + '<div class="col-sm-9">'
+            +'<input type="hidden" name="departmentId" value="'+departmentId+'">'
         + '<input type="text" class="form-control" placeholder="请输入用户组名称" name="name">'
         + '</div>'
         + '</div>'
@@ -220,7 +214,21 @@ me.find('#create_user_group').on('click', function () {
                 label: '创建',
                 className: 'btn-info',
                 callback:function(){
-
+                    $.ajax({
+                        type: 'post',
+                        url: "user_group_add.action",
+                        data: $('#create_user_group_form').serialize(),
+                        async: false,
+                        success: function (data) {
+                            var json = eval('(' + data + ')');
+                            if (json.result == 'true') {
+                                alertMessage('用户组保存成功!', 'success');
+                                rightFrame.window.location.href = "department_page.action?target='rightFrame'";
+                            } else {
+                                alertMessage('用户组保存失败,请联系网络管理员!', 'error');
+                            }
+                        }
+                    });
                 }
             },
             cancel: {
@@ -229,44 +237,118 @@ me.find('#create_user_group').on('click', function () {
             },
         },
         closeButton: false
-    })
-    ;
+    });
+});
+//编辑用户组信息
+me.find('.edit_user_group').on('click',function(){
+    var id = $(this).data('id');
+    if (id) {
+        $.ajax({
+            type: 'get',
+            url: "user_group_editPage.action?id=" + id,
+            async: false,
+            success: function (data) {
+                var json = eval('(' + data + ')');
+                if (json.result == 'true') {
+                    bootbox.dialog({
+                        message: '<form class="form-horizontal" role="form" id="edit_department_form">'
+                        + '<div class="form-group">'
+                        + '<label class="col-sm-3 control-label">用户组名称</label>'
+                        + '<div class="col-sm-9">'
+                        + '<input type="hidden" name="id" value="'+json.entity[0].id+'">'
+                        + '<input type="text" class="form-control" placeholder="请输入部门名称,必填项" name="name" value="' + json.entity[0].name + '">'
+                        + '</div>'
+                        + '</div>'
+                        + '<div class="form-group">'
+                        + '<label class="col-sm-3 control-label">备注信息</label>'
+                        + '<div class="col-sm-9">'
+                        + '<textarea class="form-control" rows="3" placeholder="请输入备注信息" name="other">' + json.entity[0].other + '</textarea>'
+                        + '</div>'
+                        + '</div>'
+                        + '</form>',
+                        buttons: {
+                            ok: {
+                                label: '更新',
+                                className: 'btn-info',
+                                callback: function () {
+                                    var id = json.entity[0].id;
+                                    $.ajax({
+                                        type: 'post',
+                                        url: "user_group_edit.action",
+                                        data: $('#edit_department_form').serialize(),
+                                        async: false,
+                                        success: function (data) {
+                                            var json = eval('(' + data + ')');
+                                            if (json.result == 'true') {
+                                                alertMessage('用户组信息更改成功!', 'success');
+                                                rightFrame.window.location.href = "department_page.action?target='rightFrame'";
+                                            } else {
+                                                alertMessage('用户组信息已过期,请刷新之后重新尝试!', 'error');
+                                            }
+                                        }
+                                    });
+                                }
+                            },
+                            cancel: {
+                                label: '取消',
+                                className: 'btn-default'
+                            },
+                        },
+                        closeButton: false
+                    });
+
+                } else {
+                    alertMessage('部门保存失败,请联系网络管理员!', 'error');
+                }
+            }
+        });
+    }
+});
+//删除用户组信息
+me.find('.del_user_group').on('click', function () {
+    var id = $(this).data('id');
+    askMessage('是否删除该用户组?该用户组下的用户将会被删除。', '删除',function(){
+        $.ajax({
+            type: 'post',
+            url: "user_group_del.action?id="+id,
+            async: false,
+            success: function (data) {
+                var json = eval('(' + data + ')');
+                if (json.result == 'true') {
+                    alertMessage('用户组删除成功!', 'success');
+                    rightFrame.window.location.href = "department_page.action?target='rightFrame'";
+                } else {
+                    alertMessage('用户组信息已过期,请刷新之后重新尝试!', 'error');
+                }
+            }
+        });
+    });
+});
+//点击部门表激活显示用户组信息
+me.find('#departmentTable tr').on('click',function(){
+   var id=$(this).data("id");
+    $.ajax({
+        type: 'post',
+        url: "department_list.action?id="+id,
+        async: false,
+        success: function (data) {
+            var json = eval('(' + data + ')');
+            if (json.result == 'true') {
+                me.find('#userGroupBody').empty().html();
+                if(json.entity){
+
+                }
+            } else {
+                alertMessage('部门信息已过期,请刷新之后重新尝试!', 'error');
+            }
+        }
+    });
+    $(this).addClass('active').siblings('tr').removeClass('active');
 });
 
 
-me.find('.edit_user_group,#create_user_group').on('click', function () {
-    bootbox.dialog({
-        message: '<form class="form-horizontal" role="form">'
-        + '<div class="form-group">'
-        + '<label class="col-sm-3 control-label">用户组名称</label>'
-        + '<div class="col-sm-9">'
-        + '<input type="text" class="form-control" placeholder="请输入用户组名称">'
-        + '</div>'
-        + '</div>'
-        + '<div class="form-group">'
-        + '<label class="col-sm-3 control-label">备注信息</label>'
-        + '<div class="col-sm-9">'
-        + '<textarea class="form-control" rows="3" placeholder="请输入备注信息"></textarea>'
-        + '</div>'
-        + '</div>'
-        + '</form>',
-        buttons: {
-            ok: {
-                label: '完成',
-                className: 'btn-info'
-            },
-            cancel: {
-                label: '取消',
-                className: 'btn-default'
-            },
-        },
-        callback: function (result) {
-            alert(result);
-        },
-        closeButton: false
-    })
-    ;
-});
+
+
 /**
  * 首页
  */
